@@ -6,7 +6,7 @@
 	<groupId>com.OrbusVR</groupId>
 	<artifactId>OrbusVR</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging> 
+	<packaging>jar</packaging> 
 	 <!--  <packaging>war</packaging> -->
 	<name>OrbusVR</name>
 	<description>OrbusVR Application</description>
