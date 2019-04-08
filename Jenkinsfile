@@ -12,7 +12,7 @@ pipeline {
 				git 'https://github.com/Ninjaroz/OrbusVR'
 			}
 		}
-		stage('Compile-Package'){
+		/*stage('Compile-Package'){
 			steps{
 				withMaven(maven : 'maven_3_6_0'){
 					sh 'mvn package'
@@ -32,7 +32,7 @@ pipeline {
 					sh 'mvn test'
 				}
 			}
-		}
+		}*/
 		stage('Deployment Stage'){
 			steps{
 				withMaven(maven : 'maven_3_6_0'){
