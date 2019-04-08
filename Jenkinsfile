@@ -1,6 +1,8 @@
 pipeline {
 	agent any
 	stages{
+		stage('Test'){
+		}
 		/*stage('Compile-Package'){
 			steps{
 				withMaven(maven : 'maven_3_6_0'){
