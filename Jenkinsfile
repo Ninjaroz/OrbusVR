@@ -1,11 +1,11 @@
 pipeline {
 	agent any
 	stages{
-		stage('Test'){
+		/*stage('Test'){
 			steps{
 			}
 		}
-		/*stage('Compile-Package'){
+		stage('Compile-Package'){
 			steps{
 				withMaven(maven : 'maven_3_6_0'){
 					sh 'mvn package'
