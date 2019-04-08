@@ -9,8 +9,28 @@ pipeline {
 		stage('Compile-Package'){
 			steps{
 				withMaven(maven : 'maven_3_6_0'){
-					def mvnHome = tool name: 'maven_3_6_0', type: 'maven'
-					sh "${mvnHome}/bin/mvn package"
+					sh 'mvn package'
+				}
+			}
+		}
+		stage('Compile Stage'){
+			steps{
+				withMaven(maven : 'maven_3_6_0'){
+					sh 'mvn clean compile'
+				}
+			}
+		}
+		stage('Testing Stage'){
+			steps{
+				withMaven(maven : 'maven_3_6_0'){
+					sh 'mvn test'
+				}
+			}
+		}
+		stage('Deployment Stage'){
+			steps{
+				withMaven(maven : 'maven_3_6_0'){
+					sh 'mvn deploy'
 				}
 			}
 		}	
