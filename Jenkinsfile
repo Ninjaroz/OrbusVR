@@ -8,8 +8,8 @@ pipeline {
 		}
 		stage('Compile-Package'){
 			steps{
-				def mvnHome = tool name: 'maven_3_6_0', type: 'maven'
 				withMaven(maven : 'maven_3_6_0'){
+					def mvnHome = tool name: 'maven_3_6_0', type: 'maven'
 					sh "${mvnHome}/bin/mvn package"
 				}
 			}
