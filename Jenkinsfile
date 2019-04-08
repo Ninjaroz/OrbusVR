@@ -1,6 +1,6 @@
 pipeline {
 	agent any
-	Stages{
+	stages{
 		stage('Checkout'){
 			steps{
 				git 'https://github.com/Ninjaroz/OrbusVR'
