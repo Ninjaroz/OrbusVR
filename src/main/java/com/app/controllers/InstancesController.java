@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.app.models.Instance;
 import com.app.services.InstanceService;
 
+/*
+ * Handles the instances model view page
+ * @author Gary Sundquist
+ */
 @Controller
 public class InstancesController {
 
@@ -19,7 +23,9 @@ public class InstancesController {
 	
 	@Autowired
 	private InstanceService instanceService;
-	
+	/*
+	 * @return instance view
+	 */
 	@RequestMapping(value = "/Instances", method = RequestMethod.GET)
 	public String instances(Model model) {
 		logger.debug("loading Instances page...");

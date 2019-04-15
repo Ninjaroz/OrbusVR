@@ -14,7 +14,11 @@ import com.app.models.User;
 import com.app.services.UserService;
 import com.app.utils.JacksonUtils;
 
-
+/*
+ * 
+ * Handles the leaderboards page view
+ * @author Gary Sundquist
+ */
 @Controller
 public class LeaderboardsController {
 
@@ -22,7 +26,9 @@ public class LeaderboardsController {
 	
 	@Autowired
 	private UserService userService;
-	
+	/*
+	 * @Return Leaderboards view
+	 */
 	@RequestMapping(value = "/Leaderboards", method = RequestMethod.GET)
 	public String leaderboards(Model model) {
 		logger.debug("loading Leaderboards page...");

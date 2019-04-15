@@ -1,5 +1,9 @@
 package com.app.models;
 
+/*
+ * Levels object
+ * @author Gary Sundquist
+ */
 public class Levels {
 	
 	private int archer;

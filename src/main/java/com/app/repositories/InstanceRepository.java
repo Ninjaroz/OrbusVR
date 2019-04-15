@@ -7,8 +7,13 @@ import org.springframework.stereotype.Repository;
 
 import com.app.models.Instance;
 
+/*
+ * @param jpa instance
+ * @author Gary Sundquist
+ */
 @Repository
 public interface InstanceRepository extends JpaRepository<Instance, Long>{ 	
-	@Query(value = "Select * FROM tguIL5g8C8.instance", nativeQuery = true)
+	@Query(value = "Select instance_Id, name FROM tguIL5g8C8.instance", nativeQuery = true)
+	//@Query(value = "Select instance_Id, name FROM orbusvrinfo.instance", nativeQuery = true)
 	List<Instance>getAllInstances();
 }

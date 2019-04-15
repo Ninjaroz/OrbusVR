@@ -9,6 +9,10 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/*
+ * JSON handler
+ * @author Gary Sundquist
+ */
 public class JacksonUtils {
 	
 	private static ObjectMapper mapper = new ObjectMapper();

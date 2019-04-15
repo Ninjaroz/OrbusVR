@@ -1,5 +1,9 @@
 package com.app.models;
 
+/*
+ * Stats Object
+ * @author Gary Sundquist
+ */
 public class Stats {
 
 	private String name;

@@ -8,12 +8,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+/*
+ * Instance Object
+ * @author Gary Sundquist
+ */
 @Entity
 @Table(name = "instance")
 public class Instance {
 
 	@Id
-	@Column(name="instanceId")
+	@Column(name="instance_Id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int instanceId;
 	

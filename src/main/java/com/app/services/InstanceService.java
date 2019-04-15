@@ -1,5 +1,9 @@
 package com.app.services;
 
+/*
+ * Service for Instance database transactions
+ * @author Gary Sundquist
+ */
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +20,6 @@ public class InstanceService {
 	
     public List<Instance> getAllInstances(){
     	return instanceRepository.getAllInstances();
+    
     }
 }

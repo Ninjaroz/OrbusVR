@@ -1,5 +1,9 @@
 package com.app.models;
 
+/*
+ * User Object
+ * @author Gary Sundquist
+ */
 import java.sql.Date;
 import java.util.List;
 import javax.persistence.*;

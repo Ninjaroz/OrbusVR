@@ -12,14 +12,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.app.models.User;
 import com.app.services.UserService;
 import com.app.utils.JacksonUtils;
-
+/*
+ * Handles user database transactions
+ * @author Gary Sundquist
+ */
 @Controller
 public class UserController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
 	private UserService userService;
-	
+	/*
+	 * @param user obj json string
+	 */
 	@RequestMapping(value = "/SaveUser", method = {RequestMethod.POST, RequestMethod.GET})
 	public void SaveUser(@RequestParam("user") String userStr) {
 			User user = JacksonUtils.getObj(userStr, User.class);
@@ -32,7 +37,9 @@ public class UserController {
 			logger.debug("Updating or creating user: " + user.getName());
 				userService.save(user);
 	}
-	
+	/*
+	 * @param user name
+	 */
 	@RequestMapping(value = "/DeleteUser", method = {RequestMethod.POST, RequestMethod.GET})
 	public void DeleteUser(@RequestParam("name") String name) {
 			List<User> existingUserlst = userService.findByName(name);

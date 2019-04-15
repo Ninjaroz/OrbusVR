@@ -3,13 +3,15 @@ package com.app.services;
 import com.app.models.User;
 import com.app.repositories.UserRepository;
 import java.util.List;
-import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+/*
+ * Service for user database transactions
+ * @author Gary Sundquist
+ */
 @Service 
 public class UserService{
 	
