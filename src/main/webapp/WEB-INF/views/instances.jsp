@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="mytags" tagdir="/WEB-INF/tags" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,27 +9,19 @@
 <title>Instances</title>
 </head>
 
-<script>
-
-//Document ready automatically loads the drop-down list with all instances in db
-
-
-//when opt is selected from drop down list it will load image based on selected instace
-
-
-</script>
-
-
-
 <body>
 <mytags:navbar/>
 	<table>
 		<tr>
-			<td><select id="instanceList"></select></td>
+			<td>
+				<select id="instanceList">
+					<c:forEach items="${instances}" var="obj">
+						<option value="${obj.instanceId}">${obj.name}</option>
+					</c:forEach>			
+				</select>
+			</td>
 	   </tr>
-	</table>
-	
-	<img></img>
+	</table>	
 
 </body>
 </html>
