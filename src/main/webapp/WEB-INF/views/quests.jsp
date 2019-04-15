@@ -5,10 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Instances</title>
+<title>Quests</title>
 </head>
 <body>
 <mytags:navbar/>
-
 </body>
 </html>
