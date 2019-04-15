@@ -7,8 +7,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Instances</title>
 </head>
+
+<script>
+
+//Document ready automatically loads the drop-down list with all instances in db
+
+
+//when opt is selected from drop down list it will load image based on selected instace
+
+
+</script>
+
+
+
 <body>
 <mytags:navbar/>
+	<table>
+		<tr>
+			<td><select id="instanceList"></select></td>
+	   </tr>
+	</table>
+	
+	<img></img>
 
 </body>
 </html>

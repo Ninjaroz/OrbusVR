@@ -13,22 +13,17 @@
 <style>
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/orbusVRAPIQueries.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/orbusVRAPIQueries.js"></script>
 <script>
-$(document).ready(function(){
-	
-	$("#searchBy").change(function(){
-
-	});
-	
+$(document).ready(function(){	
 	$("#searchBtn").click(function(){
-		searchAPI($("#searchBy").val(),$("#searchByText"));
-		switch($("#searchBy").val()){
-			case "user":
-			case "fellowship":
-				break;
-		}
+		searchAPI($("#searchByText"),saveUser);
 	});
+	
+	$(document).on('click', '#deleteUser', function(){ 
+		alert("deleting user... " + $(this).val());
+		deleteUser($(this).val());
+	}); 	
 });
 
 </script>
@@ -36,17 +31,13 @@ $(document).ready(function(){
 	<mytags:navbar/>
 	<table>
 		<tr>
-			<td><select id="searchBy" name="searchBy">
-   				<option value="characters">characters</option>
-   				<option value="fellowship">fellowship</option>
-			</select></td>
 			<td><input id="searchByText"/></td>
 			<td><button id="searchBtn">Submit</button>
 	   </tr>
 	</table>	
 	
 	<div id ="searchContainer">
-		<mytags:userSearch/>
+		
 	</div>
 	
 </body>

@@ -20,15 +20,10 @@
 <c:if test="${currentURL.equals('/Leaderboards')}">
 	<c:set var="activeLink" value="$('#leaderboards').addClass('active');"/>
 </c:if>
-<c:if test="${currentURL.equals('/Quests')}">
-	<c:set var="activeLink" value="$('#navQuests').addClass('active');"/>
-</c:if>
 <c:if test="${currentURL.equals('/Instances')}">
 	<c:set var="activeLink" value="$('#navInstances').addClass('active');"/>
 </c:if>
-<c:if test="${currentURL.equals('/FAQ')}">
-	<c:set var="activeLink" value="$('#navFAQ').addClass('active');"/>
-</c:if>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
@@ -43,9 +38,7 @@ $(document).ready(function(){
       	<a href="/app" id="navHome">Home</a>     
       	<a href="/app/Search" id="navSearch">Search</a>
       	<a href="/app/Leaderboards" id="leaderboards">Leaderboards</a>
-      	<a href="/app/Quests" id="navQuests">Quests</a>
       	<a href="/app/Instances" id="navInstances">Instances</a>
-      	<a href="/app/FAQ" id="navFAQ" style="float:right;">FAQ</a>	
     </div>
   </body>
 </html>

@@ -1,24 +1,46 @@
 
 //Gets character data from API
-function searchAPI(searchType,searchbyText){
+function searchAPI(searchbyText,callback){
 	//TODO: Query database to see if user already exists and if they have been updated within 
 	//the last 24 hours
 	$.ajax({
-		url: "http://api-game.orbusvr.com/public/"+searchType+"/"+searchbyText.value,		
+		url: "http://api-game.orbusvr.com/public/characters/"+searchbyText.val(),		
 		type: "GET",
 		success: function(result){
-			alert(result);
-			//saveUser(result);
+			//Clear contents of searchContainer
+			$("#searchContainer").html("");
+			var obj = JSON.parse(result);
+			$("#searchContainer").append("<ul id='user'></ul>");
+			$("#user").append("<li>" + obj.characterName + " <button id='deleteUser' value='"+obj.characterName+"'>Delete User</button>" +"</li>" +
+							  "<li>Archer: " + obj.levels.archer + "</li>" +
+							  "<li>Barbarian: " + obj.levels.barbarian + "</li>" +
+							  "<li>Fisher: " + obj.levels.fisher + "</li>" +
+							  "<li>Orbhealer: " + obj.levels.orbhealer + "</li>" +
+							  "<li>Runemage: " + obj.levels.runemage + "</li>" +
+							  "<li>Swordboard: " + obj.levels.swordboard + "</li>" +
+							  "<li>Unarmed: " + obj.levels.unarmed + "</li>"
+							  );
+			//TODO: convert json to obj and populate + append table
+			callback(result.toString());
 		}
 	});
 }
 
-/*Saves character data to database
-function saveUser(user){
+//Saves character data to database
+function saveUser(result){
 	$.ajax({
 		url: "/app/SaveUser",
 		type:"POST",
-		data: {user: user}
+		data: {user: result}
 	});
-}*/
+}
+
+//deletes character from database
+function deleteUser(cName){
+	$.ajax({
+		url: "/app/DeleteUser",
+		type:"POST",
+		data: {name: cName}
+	});
+}
 
