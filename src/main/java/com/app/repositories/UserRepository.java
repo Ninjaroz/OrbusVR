@@ -12,11 +12,11 @@ import com.app.models.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
-	@Query(value = "Select * FROM tguIL5g8C8.user where name = ?1", nativeQuery = true)
-	//@Query(value = "Select * FROM orbusvrinfo.user where name = ?1", nativeQuery = true)	
+	//@Query(value = "Select * FROM tguIL5g8C8.user where name = ?1", nativeQuery = true)
+	@Query(value = "Select * FROM orbusvrinfo.user where name = ?1", nativeQuery = true)	
 	List<User> findByName(String name);	
 	
-	@Query(value = "Select * FROM tguIL5g8C8.user", nativeQuery = true)
-	//@Query(value = "Select * FROM orbusvrinfo.user", nativeQuery = true)
+	//@Query(value = "Select * FROM tguIL5g8C8.user", nativeQuery = true)
+	@Query(value = "Select * FROM orbusvrinfo.user", nativeQuery = true)
 	List<User>getAllUsers();
 }

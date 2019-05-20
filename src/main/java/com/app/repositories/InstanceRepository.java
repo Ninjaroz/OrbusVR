@@ -13,7 +13,7 @@ import com.app.models.Instance;
  */
 @Repository
 public interface InstanceRepository extends JpaRepository<Instance, Long>{ 	
-	@Query(value = "Select instance_Id, name FROM tguIL5g8C8.instance", nativeQuery = true)
-	//@Query(value = "Select instance_Id, name FROM orbusvrinfo.instance", nativeQuery = true)
+	//@Query(value = "Select instance_Id, name FROM tguIL5g8C8.instance", nativeQuery = true)
+	@Query(value = "Select instance_Id, name FROM orbusvrinfo.instance", nativeQuery = true)
 	List<Instance>getAllInstances();
 }

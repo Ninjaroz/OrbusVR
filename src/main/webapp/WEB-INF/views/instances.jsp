@@ -9,6 +9,19 @@
 <title>Instances</title>
 </head>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){	
+	$("#instanceList").on('change', function(){
+		$("#instanceImg").attr('src', "${pageContext.request.contextPath}/resources/imgs/"+this.value+'.jpg');
+		$("#caption").append("");
+		$("#caption").append("source= orbus online https://orbus.online/index.php?title=Map_of_the_World");
+	});
+});
+
+
+</script>
+
 <body>
 <mytags:navbar/>
 	<table>
@@ -16,12 +29,16 @@
 			<td>
 				<select id="instanceList">
 					<c:forEach items="${instances}" var="obj">
-						<option value="${obj.instanceId}">${obj.name}</option>
+						<option value="${obj.name}">${obj.name}</option>
 					</c:forEach>			
 				</select>
 			</td>
 	   </tr>
-	</table>	
+	</table>
+	
+	<div id="instancePicture"><img id="instanceImg"src=""><figcaption id="caption"></figcaption></div>
+	
+	<div id="instanceDetails"></div>	
 
 </body>
 </html>

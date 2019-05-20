@@ -1,91 +1,73 @@
-function getArcherHighScores(list){
-	//convert java list json to javascript list
-	//var objList = JSON.parse(list);
-	//Clear contents of archerHighScores
-	$("#archerHighScores").html("");
-	$("#archerHighScores").append("<ul id='archerHighScoresList'>");
-	alert(list.size());
-	objList.forEach(function(user){
-		$("#archerHighScoresList").append("<li>" + user.characterName + " Archer Level: " + user.levels.archer + "</li>");
-	});	
-	$("#archerHighScoresList").append("</ul>");
+function loadHighScores(list){
+	
+	var monstersKilledList = [];
+	var gatheringList = [];
+	var fishingList = [];
+	
+	//add records to an array
+	 //for (var i = 0; i < list.length; i++){
+	   list.forEach(function(record){
+		for (var x = 0; x < record.stats.length; x++){
+			var newRecord = {name: record.name, record: record.stats[x].record};
+			switch(record.stats[x].name){
+				case "fish_totalweight":
+					fishingList.push(newRecord);
+					break;
+				case "monsters_killed":
+					monstersKilledList.push(newRecord);
+					break;
+				case "gathers":
+					gatheringList.push(newRecord);
+					break;
+				default:
+					break;
+			}
+		}	 
+	 });
+	 
+	 //Create record tables
+	 createHighScoreTable("monstersKilledHighScores",monstersKilledList);
+	 createHighScoreTable("gatheringHighScores",gatheringList);
+	 createHighScoreTable("fishingHighScores",fishingList);
 }
 
-function getBarbarianHighScores(list){
-	//convert java list json to javascript list
-	//var objList = JSON.parse(list);
-	//Clear contents of archerHighScores
-	$("#barbarianHighScores").html("");
-	$("#barbarianHighScores").append("<ul id='barbarianHighScoresList'>");
-	alert(list.size());
-	objList.forEach(function(user){
-		$("#barbarianHighScoresList").append("<li>" + user.characterName + " barbarian Level: " + user.levels.barbarian + "</li>");
+function createHighScoreTable(table, recordList){
+	
+	//clear div element of existing table
+	//$('#'+table).html("");
+	
+	recordList = sortListByRecord(recordList);
+	//var dataSet = [];
+	i = 1;
+		
+	//create new table and add to div element
+	var newTable = "<table id='"+table+"table'><tr><th>Ranking</th><th>Name</th><th>Score</th></tr>";	
+	recordList.forEach(function(record){
+		newTable = newTable.concat("<tr><td>"+i+"</td><td>"+record.name+"</td><td>"+record.record+"</td></tr>");
+		i++;
 	});	
-	$("#barbarianHighScoresList").append("</ul>");
+	newTable = newTable.concat("</table>");
+	
+	$('#'+table).append(newTable);
+	
+	/*$('#'+table+"table").Datatable({
+		data: dataSet,
+		columns: [
+			{title: "ranking"},
+			{title: "name"},
+			{title: "score"}
+		]
+	});	*/
 }
 
-function getFisherHighScores(list){
-	//convert java list json to javascript list
-	//var objList = JSON.parse(list);
-	//Clear contents of archerHighScores
-	$("#fisherHighScores").html("");
-	$("#fisherHighScores").append("<ul id='fisherHighScoresList'>");
-	alert(list.size());
-	objList.forEach(function(user){
-		$("#fisherHighScoresList").append("<li>" + user.characterName + " fisher Level: " + user.levels.fisher + "</li>");
-	});	
-	$("#fisherHighScoresList").append("</ul>");
+function sortListByRecord(highScoreList){
+	 var byRecord = highScoreList.slice(0);
+		 //sort by record
+		 byRecord.sort(function(a,b){
+			 return b.record-a.record;
+		 });
+	return byRecord;
 }
 
-function getOrbhealerHighScores(list){
-	//convert java list json to javascript list
-	//var objList = JSON.parse(list);
-	//Clear contents of archerHighScores
-	$("#orbhealerHighScores").html("");
-	$("#orbhealerHighScores").append("<ul id='orbhealerHighScoresList'>");
-	alert(list.size());
-	objList.forEach(function(user){
-		$("#orbhealerHighScoresList").append("<li>" + user.characterName + " orbhealer Level: " + user.levels.orbhealer + "</li>");
-	});	
-	$("#orbhealerHighScoresList").append("</ul>");
-}
 
-function getRunemageHighScores(list){
-	//convert java list json to javascript list
-	//var objList = JSON.parse(list);
-	//Clear contents of archerHighScores
-	$("#runemageHighScores").html("");
-	$("#runemageHighScores").append("<ul id='runemageHighScoresList'>");
-	alert(list.size());
-	objList.forEach(function(user){
-		$("#runemageHighScoresList").append("<li>" + user.characterName + " runemage Level: " + user.levels.runemage + "</li>");
-	});	
-	$("#runemageHighScoresList").append("</ul>");
-}
-
-function getSwordboardHighScores(list){
-	//convert java list json to javascript list
-	//var objList = JSON.parse(list);
-	//Clear contents of archerHighScores
-	$("#swordboardHighScores").html("");
-	$("#swordboardHighScores").append("<ul id='swordboardHighScoresList'>");
-	alert(list.size());
-	objList.forEach(function(user){
-		$("#swordboardHighScoresList").append("<li>" + user.characterName + " swordboard Level: " + user.levels.swordboard + "</li>");
-	});	
-	$("#swordboardHighScoresList").append("</ul>");
-}
-
-function getUnarmedHighScores(list){
-	//convert java list json to javascript list
-	//var objList = JSON.parse(list);
-	//Clear contents of archerHighScores
-	$("#unarmedHighScores").html("");
-	$("#unarmedHighScores").append("<ul id='unarmedHighScoresList'>");
-	alert(list.size());
-	objList.forEach(function(user){
-		$("#unarmedHighScoresList").append("<li>" + user.characterName + " unarmed Level: " + user.levels.unarmed + "</li>");
-	});	
-	$("#unarmedHighScoresList").append("</ul>");
-}
 

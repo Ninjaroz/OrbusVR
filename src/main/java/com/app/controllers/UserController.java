@@ -18,7 +18,7 @@ import com.app.utils.JacksonUtils;
  */
 @Controller
 public class UserController {
-	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
 	private UserService userService;
@@ -28,14 +28,18 @@ public class UserController {
 	@RequestMapping(value = "/SaveUser", method = {RequestMethod.POST, RequestMethod.GET})
 	public void SaveUser(@RequestParam("user") String userStr) {
 			User user = JacksonUtils.getObj(userStr, User.class);
-			user.setLastUpdated(new Date(System.currentTimeMillis()));
-			List<User> existingUserlst = userService.findByName(user.getName());
-			if (existingUserlst.size() > 0) {
-				//update existing user
-				user.setUserId(existingUserlst.get(0).getUserId());
-			}
-			logger.debug("Updating or creating user: " + user.getName());
+			if (user != null) {
+				user.setLastUpdated(new Date(System.currentTimeMillis()));
+				List<User> existingUserlst = userService.findByName(user.getName());
+				if (existingUserlst.size() > 0) {
+					//update existing user
+					user.setUserId(existingUserlst.get(0).getUserId());
+				}
+				log.debug("Updating or creating user: " + user.getName());
 				userService.save(user);
+			}else {
+				log.debug("Error parsing json data into user. User was not updated or created");
+			}
 	}
 	/*
 	 * @param user name
@@ -45,7 +49,7 @@ public class UserController {
 			List<User> existingUserlst = userService.findByName(name);
 			if (existingUserlst.size() > 0) {
 				//deleting existing user
-				logger.debug("Deleting user: " + existingUserlst.get(0).getName());
+				log.debug("Deleting user: " + existingUserlst.get(0).getName());
 				userService.deleteUser(existingUserlst.get(0).getUserId());
 			}		
 	}

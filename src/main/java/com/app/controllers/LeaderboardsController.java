@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.app.models.User;
 import com.app.services.UserService;
 import com.app.utils.JacksonUtils;
@@ -34,22 +33,13 @@ public class LeaderboardsController {
 		logger.debug("loading Leaderboards page...");
 		
 		List<User> userList = userService.getAllUsers();		
-		model.addAttribute("archerList",userList);
-		
-		return "leaderboards";
-	}
-	
-	//TODO: Sort each class by level 
-	/*private List<User>SortListByLevel(List<User> userList){
-		List<User> sortedList = null;
-		for (User user : userList) {
-			
+		if (userList.size() > 0) {
+			model.addAttribute("userList",JacksonUtils.getObjString(userList));
+		}else {
+			logger.debug("No users to return");
 		}
-		
-		return sortedList;
-	}*/
-	
-	
+		return "leaderboards";
+	}	
 }
 
 

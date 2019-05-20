@@ -21,7 +21,6 @@ $(document).ready(function(){
 	});
 	
 	$(document).on('click', '#deleteUser', function(){ 
-		alert("deleting user... " + $(this).val());
 		deleteUser($(this).val());
 	}); 	
 });

@@ -9,10 +9,12 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import com.app.utils.JacksonUtils;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "user")
+@JsonIgnoreProperties(value = {"equipment"})
 public class User {
 	
 	@Id
@@ -41,11 +43,18 @@ public class User {
 	@Transient
 	private String fellowshipName;
 	
+	//@JsonProperty("equipment")
+	@Transient
+	private List<Object> equipment;
+	
 	@JsonProperty("stats")
     private String stats;
 	
 	@Transient
 	private String status;
+	
+	@Transient
+	private String id;
 	
     public String getStatus() {
         return status;
@@ -117,10 +126,27 @@ public class User {
 	public void setFellowshipName(String fellowshipName) {
 		this.fellowshipName = fellowshipName;
 	}
-    
-    public String toString() {
-        return "UserId: " + this.userId + ", Name: " + this.name.toString() + 
+	
+	public List<Object> getEquipment() {
+		return equipment;
+	}
+
+	public void setEquipment(List<Object> equipment) {
+		this.equipment = equipment;
+	}
+	
+    public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String toString() {
+        return "UserId: " + this.userId + ", Name: " + this.name + 
         		", timePlayed: " + this.timePlayed + ", Levels: " + 
-        		this.levels.toString() + ", Stats: " + this.stats;
+        		this.levels + ", Stats: " + this.stats + ", equipment: " +
+        		this.equipment;
     }
 }

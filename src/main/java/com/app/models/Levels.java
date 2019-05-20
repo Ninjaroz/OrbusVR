@@ -10,7 +10,11 @@ public class Levels {
 	private int barbarian;
 	private int fisher;
 	private int orbhealer;
+	private int paladin;
 	private int runemage;
+	private int shaman;
+	private int gambler;
+	private int bard;
 	private int swordboard;
 	private int unarmed;
 	
@@ -89,6 +93,30 @@ public class Levels {
 	/**
 	 * @return the unarmed
 	 */
+	public int getShaman() {
+		return shaman;
+	}
+	/**
+	 * @param unarmed the unarmed to set
+	 */
+	public void setShaman(int shaman) {
+		this.shaman = shaman;
+	}
+	/**
+	 * @return the unarmed
+	 */
+	public int getPaladin() {
+		return paladin;
+	}
+	/**
+	 * @param unarmed the unarmed to set
+	 */
+	public void setPaladin(int paladin) {
+		this.paladin = paladin;
+	}
+	/**
+	 * @return the unarmed
+	 */
 	public int getUnarmed() {
 		return unarmed;
 	}
@@ -98,14 +126,30 @@ public class Levels {
 	public void setUnarmed(int unarmed) {
 		this.unarmed = unarmed;
 	}
+	public int getGambler() {
+		return gambler;
+	}
+	public void setGambler(int gambler) {
+		this.gambler = gambler;
+	}
+	public int getBard() {
+		return bard;
+	}
+	public void setBard(int bard) {
+		this.bard = bard;
+	}
 	
 	public String toString() {
 		return "archer: " + this.archer + ", " +
 				"barbarian: " + this.barbarian + ", " +
 				"fisher: " + this.fisher + ", " +
 				"orbhealer: " + this.orbhealer + ", " +
+				"paladin: " + this.paladin + ", " +
 				"runemage: " + this.runemage + ", " +
+				"shaman: " + this.shaman + ", " +
 				"swordboard: " + this.swordboard + ", " +
+				"gambler: " + this.gambler + ", " +
+				"bard: " + this.bard + ", " +
 				"unamed: " + this.unarmed;			
 	}
 }

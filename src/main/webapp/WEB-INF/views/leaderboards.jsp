@@ -5,49 +5,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Leaderboard</title>
+<title>Leadership Boards</title>
 </head>
 <body>
 <mytags:navbar/>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/datatables.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/leaderboards.js"></script>
 
-<script>
-$(document).ready(function(){	
-	
-	//Load high scores
-	getArcherHighScores('${archerList}');
-	getBarbarianHighScores('${barbarianList}');
-	getFisherHighScores('${fisherList}');
-	getOrbhealerHighScores('${orbhealerList}');
-	getRunemageHighScores('${runemageList}');
-	getSwordboardHighScores('${swordboardList}');
-	getUnarmedHighScores('${unarmedList}');
-});
 
+<script>
+$(document).ready(function(){		
+	loadHighScores(${userList});	
+});
 </script>
 
-<div id ="archerHighScores">		
+<div id ="monstersKilledHighScores">
+<b>Monsters Killed High Scores</b>		
 </div>
 
-<div id ="barbarianHighScores">		
+<div id ="gatheringHighScores">	
+<b>Gathering High Scores</b>		
 </div>
 
-<div id ="fisherHighScores">		
-</div>
-
-<div id ="orbhealerHighScores">		
-</div>
-
-<div id ="runemageHighScores">		
-</div>
-
-<div id ="swordboardHighScores">		
-</div>
-
-<div id ="unarmedHighScores">		
+<div id ="fishingHighScores">	
+<b>Fishing High Scores</b>		
 </div>
 
 </body>

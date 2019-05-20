@@ -4,7 +4,7 @@ function searchAPI(searchbyText,callback){
 	//TODO: Query database to see if user already exists and if they have been updated within 
 	//the last 24 hours
 	$.ajax({
-		url: "http://api-game.orbusvr.com/public/characters/"+searchbyText.val(),		
+		url: "https://api-reborn.orbusvr.com/public/characters/"+searchbyText.val(),		
 		type: "GET",
 		success: function(result){
 			//Clear contents of searchContainer
@@ -22,6 +22,18 @@ function searchAPI(searchbyText,callback){
 							  );
 			//TODO: convert json to obj and populate + append table
 			callback(result.toString());
+		}
+	});
+}
+
+//Gets Server information
+function getServerStatus(callback){
+	$.ajax({
+		url: "https://api-reborn.orbusvr.com/servertime",		
+		type: "GET",
+		success: function(result){
+			var obj = JSON.parse(result);
+			callback(obj);
 		}
 	});
 }
