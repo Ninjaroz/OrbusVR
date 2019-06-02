@@ -30,6 +30,7 @@ $(document).ready(function(){
 	<mytags:navbar/>
 	<table>
 		<tr>
+			<td><label>User Search: </label></td>
 			<td><input id="searchByText"/></td>
 			<td><button id="searchBtn">Submit</button>
 	   </tr>

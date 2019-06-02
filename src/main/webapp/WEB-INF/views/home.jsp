@@ -29,6 +29,23 @@ $(document).ready(function(){
 	Welcome, to my fan based OrbusVR site
 </h1>
 
-<P id ="serverTime"></P>
+<p id ="serverTime"></p>
+
+
+
+<div id =devUpdates>
+	<table style="width:100%">
+		<tr>
+			<td>
+				<ul>Developer Gary Sundquist</ul>
+				<ul>Date: 6/2/2019</ul>
+			</td>
+			<td>
+				<p>Initial application release</p>
+			</td>
+		</tr>
+	</table>	
+</div>
+
 </body>
 </html>

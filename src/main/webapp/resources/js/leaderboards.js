@@ -5,7 +5,6 @@ function loadHighScores(list){
 	var fishingList = [];
 	
 	//add records to an array
-	 //for (var i = 0; i < list.length; i++){
 	   list.forEach(function(record){
 		for (var x = 0; x < record.stats.length; x++){
 			var newRecord = {name: record.name, record: record.stats[x].record};
@@ -32,12 +31,7 @@ function loadHighScores(list){
 }
 
 function createHighScoreTable(table, recordList){
-	
-	//clear div element of existing table
-	//$('#'+table).html("");
-	
 	recordList = sortListByRecord(recordList);
-	//var dataSet = [];
 	i = 1;
 		
 	//create new table and add to div element
@@ -48,16 +42,7 @@ function createHighScoreTable(table, recordList){
 	});	
 	newTable = newTable.concat("</table>");
 	
-	$('#'+table).append(newTable);
-	
-	/*$('#'+table+"table").Datatable({
-		data: dataSet,
-		columns: [
-			{title: "ranking"},
-			{title: "name"},
-			{title: "score"}
-		]
-	});	*/
+	$('#'+table).append(newTable);	
 }
 
 function sortListByRecord(highScoreList){
